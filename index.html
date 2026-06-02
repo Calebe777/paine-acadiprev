@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Center</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SLIDE 1: FAPREV GOLD -->
+    <div class="slide s0 active" id="s0" style="background-image: url('backgrounds/bg1.png')">
+        <div class="slide-label">01 / 06</div>
+        <div class="countdown-box">
+            <div class="event-title">3 e 4 Setembro o Congresso</div>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span class="val" id="faprev-days">00</span>
+                    <span class="lbl">Dias</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="faprev-hours">00</span>
+                    <span class="lbl">Horas</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="faprev-mins">00</span>
+                    <span class="lbl">Minutos</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="faprev-secs">00</span>
+                    <span class="lbl">Segundos</span>
+                </div>
+            </div>
+            <div class="event-date" id="faprev-datestr"></div>
+            <div class="date-input-row">
+                <input type="date" id="faprev-inp" />
+                <button class="save-btn" id="btn-save-faprev">salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: 5 CONGRESSO -->
+    <div class="slide s1" id="s1" style="background-image: url('backgrounds/bg2.png')">
+        <div class="slide-label">02 / 06</div>
+        <div class="countdown-box">
+            <div class="event-title">Gold dia 9 e 10 de Abril de 2027</div>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span class="val" id="cong-days">00</span>
+                    <span class="lbl">Dias</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="cong-hours">00</span>
+                    <span class="lbl">Horas</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="cong-mins">00</span>
+                    <span class="lbl">Minutos</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="cong-secs">00</span>
+                    <span class="lbl">Segundos</span>
+                </div>
+            </div>
+            <div class="event-date" id="cong-datestr"></div>
+            <div class="date-input-row">
+                <input type="date" id="cong-inp" />
+                <button class="save-btn" id="btn-save-cong">salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: ALIANÇA PREV -->
+    <div class="slide s2" id="s2" style="background-image: url('backgrounds/bg3.png')">
+        <div class="slide-label">03 / 06</div>
+        <div class="countdown-box">
+            <div class="event-title">Aliança Prev</div>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span class="val" id="alianca-days">00</span>
+                    <span class="lbl">Dias</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="alianca-hours">00</span>
+                    <span class="lbl">Horas</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="alianca-mins">00</span>
+                    <span class="lbl">Minutos</span>
+                </div>
+                <div class="time-divider">:</div>
+                <div class="time-block">
+                    <span class="val" id="alianca-secs">00</span>
+                    <span class="lbl">Segundos</span>
+                </div>
+            </div>
+            <div class="event-date" id="alianca-datestr"></div>
+            <div class="date-input-row">
+                <input type="date" id="alianca-inp" />
+                <button class="save-btn" id="btn-save-alianca">salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: ELITE CALENDAR + CONTADOR -->
+    <div class="slide" id="s3" style="background-image: url('backgrounds/bg4.png')">
+        <div class="slide-label">04 / 06</div>
+        <div class="elite-wrap" style="display:flex;align-items:center;z-index:2;position:relative">
+            <div class="elite-countdown-container">
+                <div class="elite-next-label">PRÓXIMO ELITE EM:</div>
+                <div class="countdown-timer compact">
+                    <div class="time-block">
+                        <span class="val" id="elite-days">00</span>
+                        <span class="lbl">Dias</span>
+                    </div>
+                    <div class="time-divider">:</div>
+                    <div class="time-block">
+                        <span class="val" id="elite-hours">00</span>
+                        <span class="lbl">Horas</span>
+                    </div>
+                    <div class="time-divider">:</div>
+                    <div class="time-block">
+                        <span class="val" id="elite-mins">00</span>
+                        <span class="lbl">Min</span>
+                    </div>
+                    <div class="time-divider">:</div>
+                    <div class="time-block">
+                        <span class="val" id="elite-secs">00</span>
+                        <span class="lbl">Seg</span>
+                    </div>
+                </div>
+                <div class="elite-next-date" id="elite-next-date"></div>
+                
+                <!-- Waiting List Badge -->
+                <div class="elite-waiting-badge">
+                    <div class="waiting-title">LISTA DE ESPERA</div>
+                    <div class="waiting-number-glowing">
+                        <span class="waiting-icon">👥</span>
+                        <span class="waiting-count" id="elite-waiting-count">172</span>
+                        <span class="waiting-unit">pessoas</span>
+                    </div>
+                    <div class="waiting-status">
+                        <span class="status-pulse"></span>
+                        Fila ativa no sistema
+                    </div>
+                </div>
+                
+                <div class="date-input-row" style="margin-top: 15px;">
+                    <input type="number" id="waiting-list-inp" placeholder="Espera (ex: 172)" style="width: 110px; padding: 5px 8px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.4); color: #fff; font-family: 'DM Mono', monospace;" />
+                    <button class="save-btn" id="btn-save-waiting" style="padding: 5px 12px; margin-left: 6px; border-radius: 6px;">salvar</button>
+                </div>
+            </div>
+            <div class="elite-list" id="elite-grid"></div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: HOTMART META -->
+    <div class="slide" id="s4">
+        <div class="slide-label">05 / 06</div>
+        <div class="meta-box">
+            <div class="meta-pct" id="meta-pct-bg">0%</div>
+            <div style="position:relative;z-index:1">
+                <div class="meta-title-label">FATURAMENTO</div>
+                <div class="meta-atual" id="meta-atual">R$ 0,00</div>
+                <div class="meta-barra-wrap">
+                    <div class="meta-track">
+                        <div class="meta-fill" id="meta-fill" style="width:0%"></div>
+                    </div>
+                    <div class="meta-labels">
+                        <span>R$ 0</span>
+                        <span id="meta-meta-label">META: R$ 12.000.000</span>
+                    </div>
+                </div>
+                <div class="meta-falta">faltam <span id="meta-falta-val">—</span> para a meta</div>
+                <div class="meta-input-row">
+                    <input class="meta-input" id="meta-val-inp" placeholder="Valor atual (ex: 5318725.11)" type="number" step="0.01"/>
+                    <button class="save-btn" id="btn-save-meta">atualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: CHECKLIST -->
+    <div class="slide" id="s5">
+        <div class="slide-label">06 / 06</div>
+        <div class="check-container">
+            <div class="check-header">
+                <div class="check-title-label">CHECKLIST ELITE</div>
+                <div class="check-progress" id="ck-prog">0 / 12</div>
+            </div>
+            <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+            <div id="ck-grid" class="check-grid"></div>
+            <button class="reset-btn" id="btn-reset-check">resetar</button>
+        </div>
+    </div>
+
+    <!-- Settings Toggle Button -->
+    <button class="settings-btn" id="btn-settings" title="Editar Configurações">⚙️</button>
+    <button class="fullscreen-btn" id="btn-fullscreen" title="Tela Cheia">⛶</button>
+
+    <div class="dots" id="dots"></div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>

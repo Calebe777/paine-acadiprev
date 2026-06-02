@@ -1,0 +1,24 @@
+{
+    "revenue": 5318725.11,
+    "waiting_list": 173,
+    "checklist": {
+        "bebidas": false,
+        "almoco": false,
+        "jantar": false,
+        "vans": false,
+        "mesas": false,
+        "copos": false,
+        "painel": false,
+        "frutas": false,
+        "folders": false,
+        "trofeus": false,
+        "plaquinhas": false,
+        "tacas": false
+    },
+    "event_dates": {
+        "faprev_gold": "2026-09-03",
+        "congresso_5": "2027-04-09",
+        "alianca_prev": "2026-08-24"
+    },
+    "recent_sales": []
+}
