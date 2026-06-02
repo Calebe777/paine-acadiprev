@@ -285,30 +285,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function triggerConfetti() {
-        const container = document.querySelector('.meta-box');
+        const container = document.body;
         if (!container) return;
         
         const colors = ['#00e676', '#c4b5fd', '#ffd54f', '#ffbe41', '#29b6f6'];
         
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 90; i++) {
             const p = document.createElement('div');
             p.className = 'confetti-particle';
             
             const color = colors[Math.floor(Math.random() * colors.length)];
-            const size = Math.random() * 8 + 6 + 'px';
+            const size = Math.random() * 12 + 6 + 'px';
             const left = Math.random() * 100 + '%';
-            const top = Math.random() * 80 + '%';
             
             p.style.backgroundColor = color;
             p.style.width = size;
             p.style.height = size;
             p.style.left = left;
-            p.style.top = top;
+            p.style.top = '-20px';
+            p.style.position = 'fixed';
+            p.style.zIndex = '9999';
             p.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+            p.style.animation = 'particle-fly 3s cubic-bezier(0.1, 0.8, 0.3, 1) forwards';
             
-            const tx = (Math.random() * 400 - 200) + 'px';
-            const ty = (Math.random() * -300 - 50) + 'px';
-            const rot = (Math.random() * 360) + 'deg';
+            const tx = (Math.random() * 600 - 300) + 'px';
+            const ty = (window.innerHeight + 100) + 'px';
+            const rot = (Math.random() * 720 + 360) + 'deg';
             
             p.style.setProperty('--tx', tx);
             p.style.setProperty('--ty', ty);
@@ -318,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             setTimeout(() => {
                 p.remove();
-            }, 2000);
+            }, 3000);
         }
     }
 
@@ -365,6 +367,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (endVal > startVal) {
+            // Mudar para o slide 5 (Meta de Faturamento)
+            goTo(4);
+
             const metaBox = document.querySelector('.meta-box');
             const metaFill = document.getElementById('meta-fill');
             
