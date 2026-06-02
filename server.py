@@ -99,6 +99,16 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                 with open(db_path, 'r', encoding='utf-8') as f:
                     db = json.load(f)
                 
+                # Validação de segurança por token Hottok (opcional)
+                hottok_header = self.headers.get('X-Hotmart-Hottok')
+                expected_hottok = os.environ.get("HOTMART_HOTTOK") or db.get("hotmart_hottok")
+                
+                if expected_hottok:
+                    if not hottok_header or hottok_header != expected_hottok:
+                        print(f"[HOTMART WEBHOOK] [NEGADO] Token Hottok inválido ou ausente! Recebido: {hottok_header}")
+                        self.wfile.write(json.dumps({"status": "error", "message": "Unauthorized: Invalid Hottok"}).encode('utf-8'))
+                        return
+                
                 # Atualiza os dados
                 db["revenue"] = db.get("revenue", 0.0) + value
                 
@@ -159,6 +169,8 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                     db["revenue"] = float(payload["revenue"])
                 if "waiting_list" in payload:
                     db["waiting_list"] = int(payload["waiting_list"])
+                if "hotmart_hottok" in payload:
+                    db["hotmart_hottok"] = str(payload["hotmart_hottok"])
                 if "event_dates" in payload:
                     for k, v in payload["event_dates"].items():
                         db["event_dates"][k] = v
