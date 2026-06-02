@@ -8,7 +8,7 @@ import urllib.request
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from datetime import datetime
 
-PORT = 8000
+PORT = int(os.environ.get("PORT", 8000))
 
 class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
     """
