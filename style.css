@@ -780,69 +780,70 @@ body.show-settings .reset-btn {
 
 /* ── CHECKLIST (SLIDE 5) ── */
 .check-container {
-    width: min(720px, 92vw);
-    padding: 35px 40px;
+    width: min(1080px, 94vw);
+    padding: 45px 50px;
 }
 
 .check-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .check-title-label {
     font-family: 'Outfit', sans-serif;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 800;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .check-progress {
     font-family: 'Outfit', sans-serif;
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 700;
     color: #00e676;
     letter-spacing: 1px;
 }
 
 .prog-bar {
-    height: 4px;
+    height: 8px;
     background: rgba(255, 255, 255, .1);
-    border-radius: 2px;
-    margin-bottom: 18px;
+    border-radius: 4px;
+    margin-bottom: 24px;
     overflow: hidden;
 }
 
 .prog-fill {
     height: 100%;
     background: linear-gradient(90deg, #00e676, #c4b5fd);
-    border-radius: 2px;
+    border-radius: 4px;
     transition: width .4s ease;
-    box-shadow: 0 0 10px rgba(0, 230, 118, 0.4);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.5);
 }
 
 .check-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 14px 20px;
 }
 
 .ci {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
     background: rgba(255, 255, 255, .05);
     border: 1px solid rgba(255, 255, 255, .08);
-    border-radius: 10px;
-    padding: 14px 18px;
+    border-radius: 14px;
+    padding: 22px 26px;
     cursor: pointer;
-    transition: all .2s;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .ci:hover {
     background: rgba(255, 255, 255, .1);
+    transform: translateY(-2px);
 }
 
 .ci.done {
@@ -851,20 +852,20 @@ body.show-settings .reset-btn {
 }
 
 .ci.done .ci-label {
-    color: rgba(255, 255, 255, .4);
+    color: rgba(255, 255, 255, .35);
     text-decoration: line-through;
 }
 
 .ci-box {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     border: 1.5px solid rgba(255, 255, 255, .25);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     color: transparent;
     transition: all .2s;
@@ -878,25 +879,25 @@ body.show-settings .reset-btn {
 }
 
 .ci-icon {
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .ci-label {
     font-family: 'Outfit', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: .5px;
 }
 
 .reset-btn {
-    margin-top: 14px;
+    margin-top: 24px;
     background: transparent;
     border: 1px solid rgba(255, 100, 100, .4);
     color: rgba(255, 100, 100, .7);
-    padding: 7px 20px;
+    padding: 10px 28px;
     border-radius: 8px;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 13px;
     cursor: pointer;
     letter-spacing: 2px;
     transition: all .2s;
