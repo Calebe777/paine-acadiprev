@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const TOTAL = 6;
+    const TOTAL = 7;
     let cur = 0;
     let currentRevenue = 0;
     
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('s' + cur).classList.add('active');
         dotsEl.children[cur].classList.add('on');
         
-        if (cur === 4 && serverData) {
+        if (cur === 5 && serverData) {
             renderMeta(serverData.revenue);
         }
 
@@ -367,8 +367,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (endVal > startVal) {
-            // Mudar para o slide 5 (Meta de Faturamento)
-            goTo(4);
+            // Mudar para o slide 6 (Meta de Faturamento - que virou index 5)
+            goTo(5);
 
             const metaBox = document.querySelector('.meta-box');
             const metaFill = document.getElementById('meta-fill');
@@ -536,6 +536,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Render Elite agenda
             renderElite();
 
+            // Sync and render sales ranking
+            if (data.sales_ranking) {
+                renderSalesRanking(data.sales_ranking);
+            }
+
         } catch (e) {
             console.error("Erro de sincronização com o servidor:", e);
         }
@@ -638,12 +643,79 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // RENDER SALES RANKING
+    function renderSalesRanking(ranking) {
+        if (!ranking || !Array.isArray(ranking)) return;
+        
+        // Sort ranking: highest sales first
+        const sorted = [...ranking].sort((a, b) => b.sales - a.sales);
+        
+        // 1st Lugar
+        const first = sorted[0] || { name: "Jaciara", sales: 0, avatar: "backgrounds/jaciara.png" };
+        const second = sorted[1] || { name: "Sidimaria", sales: 0, avatar: "backgrounds/sidimaria.png" };
+
+        const name1 = document.getElementById("name-rank1");
+        const sales1 = document.getElementById("sales-rank1");
+        const avatar1 = document.getElementById("avatar-rank1");
+
+        const name2 = document.getElementById("name-rank2");
+        const sales2 = document.getElementById("sales-rank2");
+        const avatar2 = document.getElementById("avatar-rank2");
+
+        if (name1) name1.textContent = first.name;
+        if (sales1) sales1.textContent = first.sales + (first.sales === 1 ? " venda" : " vendas");
+        if (avatar1 && first.avatar) avatar1.src = first.avatar + "?t=" + new Date().getTime();
+
+        if (name2) name2.textContent = second.name;
+        if (sales2) sales2.textContent = second.sales + (second.sales === 1 ? " venda" : " vendas");
+        if (avatar2 && second.avatar) avatar2.src = second.avatar + "?t=" + new Date().getTime();
+
+        // Fill configuration inputs
+        const inputJaciara = document.getElementById("rank-jaciara-inp");
+        const inputSidi = document.getElementById("rank-sidi-inp");
+        
+        const jaciaraObj = ranking.find(s => s.name.toLowerCase() === "jaciara") || { sales: 0 };
+        const sidiObj = ranking.find(s => s.name.toLowerCase() === "sidimaria") || { sales: 0 };
+
+        if (inputJaciara && document.activeElement !== inputJaciara) {
+            inputJaciara.value = jaciaraObj.sales;
+        }
+        if (inputSidi && document.activeElement !== inputSidi) {
+            inputSidi.value = sidiObj.sales;
+        }
+    }
+
+    async function saveSalesRanking() {
+        const salesJaciara = parseInt(document.getElementById("rank-jaciara-inp").value) || 0;
+        const salesSidi = parseInt(document.getElementById("rank-sidi-inp").value) || 0;
+        
+        try {
+            const response = await fetch(`${API_BASE}/api/config`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sales_ranking: [
+                        { name: "Jaciara", sales: salesJaciara, avatar: "backgrounds/jaciara.png" },
+                        { name: "Sidimaria", sales: salesSidi, avatar: "backgrounds/sidimaria.png" }
+                    ]
+                })
+            });
+            if (response.ok) {
+                fetchData();
+                alert("Ranking comercial salvo!");
+            }
+        } catch (e) {
+            console.error("Erro ao salvar ranking:", e);
+        }
+    }
+
     // Event Bindings
     document.getElementById("btn-save-faprev").addEventListener("click", saveFaprevDate);
     document.getElementById("btn-save-cong").addEventListener("click", saveCongressoDate);
     document.getElementById("btn-save-alianca").addEventListener("click", saveAliancaDate);
     document.getElementById("btn-save-waiting").addEventListener("click", saveWaitingList);
     document.getElementById("btn-save-meta").addEventListener("click", saveMetaValue);
+    document.getElementById("btn-save-ranking").addEventListener("click", saveSalesRanking);
     document.getElementById("btn-reset-check").addEventListener("click", resetChecklist);
 
     // Settings Toggle Listener

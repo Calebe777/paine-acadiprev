@@ -80,7 +80,7 @@ body {
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, .6);
+    color: #fff;
     z-index: 2;
 }
 
@@ -166,7 +166,7 @@ body.show-settings .reset-btn {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #fff;
     text-transform: uppercase;
     margin-bottom: 5px;
 }
@@ -221,7 +221,7 @@ body.show-settings .reset-btn {
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.5);
+    color: #fff;
     margin-top: 6px;
     text-transform: uppercase;
 }
@@ -239,7 +239,7 @@ body.show-settings .reset-btn {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.85);
+    color: #fff;
     margin-top: 15px;
     text-transform: capitalize;
 }
@@ -364,7 +364,7 @@ body.show-settings .reset-btn {
     font-family: 'Outfit', sans-serif;
     font-size: 12px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
     align-self: flex-end;
     margin-bottom: 2px;
 }
@@ -376,7 +376,7 @@ body.show-settings .reset-btn {
     font-family: 'Outfit', sans-serif;
     font-size: 11px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
+    color: #fff;
 }
 
 .status-pulse {
@@ -411,7 +411,7 @@ body.show-settings .reset-btn {
     font-size: 16px;
     font-weight: 800;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, 0.85);
+    color: #fff;
     text-align: center;
     text-transform: uppercase;
 }
@@ -538,7 +538,7 @@ body.show-settings .reset-btn {
     font-family: 'Outfit', sans-serif;
     font-size: 15px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    color: #fff;
     margin-top: 3px;
     letter-spacing: 1px;
 }
@@ -718,7 +718,7 @@ body.show-settings .reset-btn {
     justify-content: space-between;
     font-size: 18px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    color: #fff;
     letter-spacing: 1px;
     margin-top: 12px;
 }
@@ -740,7 +740,7 @@ body.show-settings .reset-btn {
     font-family: 'Outfit', sans-serif;
     font-size: 24px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
+    color: #fff;
     letter-spacing: 2px;
     margin-top: 28px;
 }
@@ -796,7 +796,7 @@ body.show-settings .reset-btn {
     font-size: 24px;
     font-weight: 800;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, 0.85);
+    color: #fff;
 }
 
 .check-progress {
@@ -909,4 +909,156 @@ body.show-settings .reset-btn {
 .reset-btn:hover {
     background: rgba(255, 100, 100, .15);
     color: rgba(255, 150, 150, .9);
+}
+
+/* ── RANKING COMERCIAL (SLIDE 5) ── */
+.ranking-container {
+    width: min(880px, 94vw);
+    padding: 45px 50px;
+    background: rgba(7, 10, 22, 0.37);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    margin-top: 60px;
+}
+
+.ranking-header {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #fff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.ranking-podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 60px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.podium-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 200px;
+}
+
+.podium-avatar-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.podium-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.rank-1 .podium-avatar {
+    width: 160px;
+    height: 160px;
+    border-color: #ffd54f; /* Gold border */
+    box-shadow: 0 0 30px rgba(255, 213, 79, 0.35), 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.rank-2 .podium-avatar {
+    border-color: #e0e0e0; /* Silver border */
+    box-shadow: 0 0 25px rgba(224, 224, 224, 0.2), 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.badge-rank {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #000;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.rank-1 .badge-rank {
+    background: #ffd54f;
+    color: #000;
+}
+
+.rank-2 .badge-rank {
+    background: #e0e0e0;
+    color: #000;
+}
+
+.podium-crown {
+    font-size: 32px;
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 8px rgba(255, 213, 79, 0.6));
+    animation: crown-float 2s infinite ease-in-out;
+}
+
+@keyframes crown-float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+.podium-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.podium-sales {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #00e676;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+}
+
+.podium-block {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    transition: all 0.5s ease;
+}
+
+.rank-1 .podium-block {
+    height: 120px;
+    background: linear-gradient(180deg, rgba(255, 213, 79, 0.15), rgba(255, 213, 79, 0.02));
+    border-color: rgba(255, 213, 79, 0.25);
+}
+
+.rank-2 .podium-block {
+    height: 80px;
+    background: linear-gradient(180deg, rgba(224, 224, 224, 0.12), rgba(224, 224, 224, 0.02));
+    border-color: rgba(224, 224, 224, 0.25);
 }

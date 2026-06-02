@@ -35,6 +35,10 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                             "congresso_5": "2027-04-09",
                             "alianca_prev": "2026-08-24"
                         },
+                        "sales_ranking": [
+                            {"name": "Jaciara", "sales": 0, "avatar": "backgrounds/jaciara.png"},
+                            {"name": "Sidimaria", "sales": 0, "avatar": "backgrounds/sidimaria.png"}
+                        ],
                         "recent_sales": []
                     }
                     with open(db_path, 'w', encoding='utf-8') as f:
@@ -140,6 +144,12 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                 # Atualiza os dados
                 db["revenue"] = db.get("revenue", 0.0) + value
                 
+                # Incrementa as vendas de Jaciara no ranking do comercial
+                if "sales_ranking" in db:
+                    for seller in db["sales_ranking"]:
+                        if seller.get("name", "").lower() == "jaciara":
+                            seller["sales"] = seller.get("sales", 0) + 1
+                
                 new_sale = {
                     "buyer": buyer_name,
                     "value": value,
@@ -202,6 +212,8 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                     db["waiting_list"] = int(payload["waiting_list"])
                 if "hotmart_hottok" in payload:
                     db["hotmart_hottok"] = str(payload["hotmart_hottok"])
+                if "sales_ranking" in payload:
+                    db["sales_ranking"] = payload["sales_ranking"]
                 if "event_dates" in payload:
                     for k, v in payload["event_dates"].items():
                         db["event_dates"][k] = v

@@ -20,6 +20,10 @@
         "congresso_5": "2027-04-09",
         "alianca_prev": "2026-08-24"
     },
+    "sales_ranking": [
+        {"name": "Jaciara", "sales": 0, "avatar": "backgrounds/jaciara.png"},
+        {"name": "Sidimaria", "sales": 0, "avatar": "backgrounds/sidimaria.png"}
+    ],
     "recent_sales": [
         {
             "buyer": "Comprador Teste Antigravity",
