@@ -1,5 +1,5 @@
 {
-    "revenue": 5328725.11,
+    "revenue": 5333725.11,
     "waiting_list": 175,
     "checklist": {
         "bebidas": false,
@@ -21,6 +21,15 @@
         "alianca_prev": "2026-08-24"
     },
     "recent_sales": [
+        {
+            "buyer": "Comprador Teste Antigravity",
+            "value": 5000.0,
+            "product": "Produto Teste Automatizado",
+            "sck": "jaciara",
+            "src": "",
+            "utm_source": "",
+            "time": "2026-06-02T13:55:19.801618"
+        },
         {
             "buyer": "Comprador Teste Antigravity",
             "value": 5000.0,

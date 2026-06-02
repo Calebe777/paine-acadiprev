@@ -125,6 +125,18 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                         self.wfile.write(json.dumps({"status": "error", "message": "Unauthorized: Invalid Hottok"}).encode('utf-8'))
                         return
                 
+                # Filtro: aceitar apenas vendas do time comercial "jaciara"
+                is_jaciara = (
+                    "jaciara" in sck.lower() or 
+                    "jaciara" in src.lower() or 
+                    "jaciara" in utm_source.lower()
+                )
+                
+                if not is_jaciara:
+                    print(f"[HOTMART WEBHOOK] Venda Ignorada (Não é Jaciara)! Comprador: {buyer_name} | Valor: R$ {value:.2f} | SCK: {sck} | SRC: {src} | UTM: {utm_source}")
+                    self.wfile.write(json.dumps({"status": "ignored", "message": "Sale ignored: not Jaciara"}).encode('utf-8'))
+                    return
+                
                 # Atualiza os dados
                 db["revenue"] = db.get("revenue", 0.0) + value
                 

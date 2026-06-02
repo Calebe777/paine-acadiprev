@@ -5,7 +5,8 @@ url = "http://localhost:8000/api/webhook"
 payload = {
     "name": "Comprador Teste Antigravity",
     "price": 5000.00,
-    "prod": "Produto Teste Automatizado"
+    "prod": "Produto Teste Automatizado",
+    "sck": "jaciara"
 }
 data = json.dumps(payload).encode('utf-8')
 
