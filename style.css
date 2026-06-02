@@ -611,10 +611,10 @@ body.show-settings .reset-btn {
 
 .meta-atual {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: min(10vw, 115px);
+    font-size: min(13vw, 150px); /* GIGANTIC faturamento text */
     line-height: 1;
     color: #00e676; /* Vibrant Green */
-    text-shadow: 0 0 35px rgba(0, 230, 118, 0.5);
+    text-shadow: 0 0 45px rgba(0, 230, 118, 0.6);
     letter-spacing: 2px;
 }
 
