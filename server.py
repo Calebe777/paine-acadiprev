@@ -77,6 +77,9 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                 value = 0.0
                 buyer_name = "Cliente Hotmart"
                 product_name = "Produto Hotmart"
+                sck = ""
+                src = ""
+                utm_source = ""
                 
                 if "data" in payload:
                     data_obj = payload["data"]
@@ -86,6 +89,14 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                             value = float(purchase["price"].get("value", 0.0))
                         elif "original_value_cents" in purchase:
                             value = float(purchase["original_value_cents"]) / 100.0
+                        
+                        # Extração de rastreamento (tracking) v2
+                        if "tracking" in purchase:
+                            tracking = purchase["tracking"]
+                            sck = tracking.get("checkout_source", "")
+                            src = tracking.get("source", "")
+                            utm_source = tracking.get("utm_source", "")
+                            
                     if "buyer" in data_obj:
                         buyer_name = data_obj["buyer"].get("name", "Cliente Hotmart")
                     if "product" in data_obj:
@@ -94,6 +105,11 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                     value = float(payload.get("price", payload.get("value", 0.0)))
                     buyer_name = payload.get("name", payload.get("buyer_name", "Cliente Hotmart"))
                     product_name = payload.get("prod", payload.get("product_name", "Produto Hotmart"))
+                    
+                    # Extração de rastreamento (tracking) v1
+                    sck = payload.get("sck", "")
+                    src = payload.get("src", "")
+                    utm_source = payload.get("utm_source", "")
                 
                 # Carrega o banco de dados
                 with open(db_path, 'r', encoding='utf-8') as f:
@@ -116,6 +132,9 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                     "buyer": buyer_name,
                     "value": value,
                     "product": product_name,
+                    "sck": sck,
+                    "src": src,
+                    "utm_source": utm_source,
                     "time": datetime.now().isoformat()
                 }
                 recent = db.get("recent_sales", [])
@@ -125,7 +144,7 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                 with open(db_path, 'w', encoding='utf-8') as f:
                     json.dump(db, f, indent=4, ensure_ascii=False)
                 
-                print(f"[HOTMART WEBHOOK] Venda Processada! Comprador: {buyer_name} | Valor: R$ {value:.2f} | Produto: {product_name}")
+                print(f"[HOTMART WEBHOOK] Venda Processada! Comprador: {buyer_name} | Valor: R$ {value:.2f} | Produto: {product_name} | SCK: {sck} | SRC: {src} | UTM: {utm_source}")
                 self.wfile.write(json.dumps({"status": "success", "message": "Sale approved successfully"}).encode('utf-8'))
                 
             except Exception as e:
