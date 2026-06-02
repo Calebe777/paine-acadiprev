@@ -39,7 +39,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, .45); /* Soft darken overlay */
+    background: transparent; /* Removed dark overlay to keep background images bright */
     z-index: 1;
 }
 
@@ -285,8 +285,8 @@ body.show-settings .reset-btn {
 
 /* ── ELITE CALENDAR (SLIDE 3) ── */
 .elite-wrap {
-    width: min(820px, 94vw);
-    padding: 35px;
+    width: min(1120px, 94vw);
+    padding: 45px 50px;
 }
 
 .elite-countdown-container {
@@ -298,11 +298,11 @@ body.show-settings .reset-btn {
     align-items: center;
     background: rgba(7, 10, 22, 0.5);
     border: 1.5px solid rgba(216, 180, 254, 0.2);
-    padding: 30px 24px 24px;
-    border-radius: 22px;
-    min-width: 320px;
+    padding: 36px 30px;
+    border-radius: 24px;
+    min-width: 440px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(216, 180, 254, 0.05);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .elite-countdown-container:hover {
@@ -311,17 +311,17 @@ body.show-settings .reset-btn {
 }
 
 .elite-waiting-badge {
-    margin-top: 20px;
+    margin-top: 24px;
     width: 100%;
-    padding: 16px;
+    padding: 20px 24px;
     background: rgba(167, 139, 250, 0.06);
-    border: 1px dashed rgba(167, 139, 250, 0.3);
-    border-radius: 14px;
-    box-shadow: inset 0 0 10px rgba(167, 139, 250, 0.05);
+    border: 1.5px dashed rgba(167, 139, 250, 0.3);
+    border-radius: 16px;
+    box-shadow: inset 0 0 12px rgba(167, 139, 250, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     transition: all 0.3s;
 }
 
@@ -354,7 +354,7 @@ body.show-settings .reset-btn {
 
 .waiting-count {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 38px;
+    font-size: 48px;
     line-height: 1;
     color: #e9d5ff;
     text-shadow: 0 0 15px rgba(167, 139, 250, 0.6);
@@ -427,32 +427,32 @@ body.show-settings .reset-btn {
 }
 
 .countdown-timer.compact {
-    gap: 8px;
-    margin: 12px 0;
+    gap: 12px;
+    margin: 18px 0;
 }
 
 .countdown-timer.compact .time-block {
-    padding: 8px 10px;
-    min-width: 60px;
-    border-radius: 10px;
+    padding: 10px 14px;
+    min-width: 80px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: none;
-    background: transparent;
-    border: none;
 }
 
 .countdown-timer.compact .time-block .val {
-    font-size: min(6vw, 36px);
+    font-size: 42px;
     color: #d8b4fe; /* Bright neon violet */
     text-shadow: 0 0 15px rgba(216, 180, 254, 0.5);
 }
 
 .countdown-timer.compact .time-block .lbl {
-    font-size: 10px;
-    margin-top: 2px;
+    font-size: 11px;
+    margin-top: 4px;
 }
 
 .countdown-timer.compact .time-divider {
-    font-size: 28px;
+    font-size: 32px;
     color: rgba(167, 139, 250, 0.3);
     margin-top: -10px;
 }
@@ -460,9 +460,9 @@ body.show-settings .reset-btn {
 .elite-list {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     flex: 1;
-    margin-left: 28px;
+    margin-left: 40px;
 }
 
 .mes-row {
@@ -515,12 +515,12 @@ body.show-settings .reset-btn {
 
 .mes-info {
     flex: 1;
-    padding: 6px 12px;
+    padding: 10px 16px;
 }
 
 .mes-nome {
     font-family: 'Outfit', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -536,10 +536,10 @@ body.show-settings .reset-btn {
 
 .mes-datas {
     font-family: 'Outfit', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
-    margin-top: 1px;
+    margin-top: 3px;
     letter-spacing: 1px;
 }
 
@@ -572,8 +572,8 @@ body.show-settings .reset-btn {
 
 .mes-d {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    width: 52px;
+    font-size: 32px;
+    width: 64px;
     text-align: center;
     flex-shrink: 0;
 }
@@ -593,33 +593,33 @@ body.show-settings .reset-btn {
 /* ── HOTMART META (SLIDE 4) ── */
 .meta-box {
     text-align: center;
-    width: min(720px, 92vw);
-    padding: 35px 50px;
+    width: min(1080px, 94vw);
+    padding: 50px 60px;
     position: relative;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s, box-shadow 0.5s;
 }
 
 .meta-title-label {
     font-family: 'Outfit', sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: 4px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 15px;
     text-transform: uppercase;
 }
 
 .meta-atual {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: min(9vw, 82px);
+    font-size: min(10vw, 115px);
     line-height: 1;
     color: #00e676; /* Vibrant Green */
-    text-shadow: 0 0 25px rgba(0, 230, 118, 0.45);
-    letter-spacing: 1px;
+    text-shadow: 0 0 35px rgba(0, 230, 118, 0.5);
+    letter-spacing: 2px;
 }
 
 .meta-barra-wrap {
-    margin: 28px 0 10px;
+    margin: 36px 0 15px;
 }
 
 .meta-track {
@@ -716,16 +716,16 @@ body.show-settings .reset-btn {
     font-family: 'Outfit', sans-serif;
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.85);
     letter-spacing: 1px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .meta-pct {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: min(18vw, 160px);
+    font-size: min(20vw, 240px);
     color: rgba(255, 255, 255, .06);
     position: absolute;
     left: 50%;
@@ -738,17 +738,17 @@ body.show-settings .reset-btn {
 
 .meta-falta {
     font-family: 'Outfit', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 2px;
-    margin-top: 22px;
+    margin-top: 28px;
 }
 
 .meta-falta span {
     font-family: 'Outfit', sans-serif;
     color: #ff6b6b; /* Warm Red */
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
     text-shadow: 0 0 15px rgba(255, 107, 107, 0.2);
 }
