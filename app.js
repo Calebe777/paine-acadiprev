@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const TOTAL = 7;
+    const TOTAL = 6;
     let cur = 0;
     let currentRevenue = 0;
     
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('s' + cur).classList.add('active');
         dotsEl.children[cur].classList.add('on');
         
-        if (cur === 5 && serverData) {
+        if (cur === 4 && serverData) {
             renderMeta(serverData.revenue);
         }
 
@@ -367,8 +367,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (endVal > startVal) {
-            // Mudar para o slide 6 (Meta de Faturamento - que virou index 5)
-            goTo(5);
+            // Mudar para o slide 5 (Meta de Faturamento - que virou index 4)
+            goTo(4);
 
             const metaBox = document.querySelector('.meta-box');
             const metaFill = document.getElementById('meta-fill');
@@ -715,7 +715,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-save-alianca").addEventListener("click", saveAliancaDate);
     document.getElementById("btn-save-waiting").addEventListener("click", saveWaitingList);
     document.getElementById("btn-save-meta").addEventListener("click", saveMetaValue);
-    document.getElementById("btn-save-ranking").addEventListener("click", saveSalesRanking);
+    const btnSaveRanking = document.getElementById("btn-save-ranking");
+    if (btnSaveRanking) {
+        btnSaveRanking.addEventListener("click", saveSalesRanking);
+    }
     document.getElementById("btn-reset-check").addEventListener("click", resetChecklist);
 
     // Settings Toggle Listener
