@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const TOTAL = 6;
+    const TOTAL = 7;
     let cur = 0;
     let currentRevenue = 0;
     
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('s' + cur).classList.add('active');
         dotsEl.children[cur].classList.add('on');
         
-        if (cur === 4 && serverData) {
+        if (cur === 5 && serverData) {
             renderMeta(serverData.revenue);
         }
 
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dynamic backgrounds local loading (with cache-busting query parameter)
     const slides = document.querySelectorAll(".slide");
     slides.forEach((slide, index) => {
-        if (index >= 4) return; // Background files exist for first 4 slides (bg1, bg2, bg3, bg4)
+        if (index >= 5) return; // Background files exist for first 5 slides (bg1, bg2, bg3, bg4, bg5)
         const timestamp = new Date().getTime();
         const localPng = new Image();
         localPng.src = `backgrounds/bg${index + 1}.png?t=${timestamp}`;
@@ -110,7 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let targetDates = {
         faprev_gold: "2026-09-03",
         congresso_5: "2027-04-09",
-        alianca_prev: "2026-08-24"
+        alianca_prev: "2026-08-24",
+        ti_projetox: "2026-08-25"
     };
 
     function fmtDate(ds) {
@@ -271,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTimerBlock("faprev", "faprev-datestr", targetDates.faprev_gold);
         updateTimerBlock("cong", "cong-datestr", targetDates.congresso_5);
         updateTimerBlock("alianca", "alianca-datestr", targetDates.alianca_prev);
+        updateTimerBlock("ti", "ti-datestr", targetDates.ti_projetox);
         updateEliteTimer();
     }
     setInterval(tickTimers, 1000);
@@ -367,8 +369,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (endVal > startVal) {
-            // Mudar para o slide 5 (Meta de Faturamento - que virou index 4)
-            goTo(4);
+            // Mudar para o slide da Meta de Faturamento (que virou index 5)
+            goTo(5);
 
             const metaBox = document.querySelector('.meta-box');
             const metaFill = document.getElementById('meta-fill');
@@ -525,6 +527,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         aliancaInp.value = data.event_dates.alianca_prev;
                     }
                 }
+                if (data.event_dates.ti_projetox) {
+                    targetDates.ti_projetox = data.event_dates.ti_projetox;
+                    const tiInp = document.getElementById("ti-inp");
+                    if (tiInp && document.activeElement !== tiInp) {
+                        tiInp.value = data.event_dates.ti_projetox;
+                    }
+                }
             }
 
             // Force update timers on server fetch
@@ -604,6 +613,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } catch (e) {
             console.error("Erro ao salvar aliança prev:", e);
+        }
+    }
+
+    async function saveTiDate() {
+        const v = document.getElementById('ti-inp').value;
+        if (!v) return;
+        try {
+            const response = await fetch(`${API_BASE}/api/config`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    event_dates: { ti_projetox: v }
+                })
+            });
+            if (response.ok) {
+                fetchData();
+                alert("Data Projeto X salva!");
+            }
+        } catch (e) {
+            console.error("Erro ao salvar TI:", e);
         }
     }
 
@@ -713,6 +742,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-save-faprev").addEventListener("click", saveFaprevDate);
     document.getElementById("btn-save-cong").addEventListener("click", saveCongressoDate);
     document.getElementById("btn-save-alianca").addEventListener("click", saveAliancaDate);
+    document.getElementById("btn-save-ti").addEventListener("click", saveTiDate);
     document.getElementById("btn-save-waiting").addEventListener("click", saveWaitingList);
     document.getElementById("btn-save-meta").addEventListener("click", saveMetaValue);
     const btnSaveRanking = document.getElementById("btn-save-ranking");

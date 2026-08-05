@@ -33,7 +33,8 @@ class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
                         "event_dates": {
                             "faprev_gold": "2026-09-03",
                             "congresso_5": "2027-04-09",
-                            "alianca_prev": "2026-08-24"
+                            "alianca_prev": "2026-08-24",
+                            "ti_projetox": "2026-08-25"
                         },
                         "sales_ranking": [
                             {"name": "Jaciara", "sales": 0, "avatar": "backgrounds/jaciara.png"},
