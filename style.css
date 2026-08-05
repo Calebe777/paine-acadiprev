@@ -236,7 +236,7 @@ body.show-settings .reset-btn {
 
 .ti-countdown-box {
     position: absolute;
-    top: 30.5%;
+    top: 29.5%;
     left: 67.7%;
     transform: translateX(-50%);
     text-align: center;
@@ -260,7 +260,7 @@ body.show-settings .reset-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 22px;
+    gap: 28px;
     margin: 0 !important;
 }
 
@@ -273,42 +273,42 @@ body.show-settings .reset-btn {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
-    min-width: 90px !important;
+    min-width: 120px !important;
 }
 
 .s4 .countdown-timer .time-block .val {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: min(8.5vw, 98px) !important;
+    font-size: min(11vw, 130px) !important;
     color: #002bfb !important; /* Blue matching Time do TI */
     text-shadow: none !important;
-    line-height: 1 !important;
+    line-height: 0.9 !important;
 }
 
 .s4 .countdown-timer .time-block .lbl {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: 16px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
-    letter-spacing: 3px !important;
+    letter-spacing: 4px !important;
     color: #000000 !important;
-    margin-top: 6px !important;
+    margin-top: 8px !important;
     text-transform: uppercase !important;
 }
 
 .s4 .countdown-timer .time-divider {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: 64px !important;
+    font-size: 88px !important;
     color: #000000 !important;
     line-height: 1 !important;
-    margin-top: -18px !important;
+    margin-top: -24px !important;
 }
 
 .s4 .event-date {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: 22px !important;
+    font-size: 26px !important;
     font-weight: 600 !important;
     letter-spacing: 3px !important;
     color: #000000 !important;
-    margin-top: 16px !important;
+    margin-top: 18px !important;
     text-align: center !important;
     text-transform: capitalize !important;
 }
