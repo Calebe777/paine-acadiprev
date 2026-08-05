@@ -1,6 +1,13 @@
 /* ==========================================================================
    CSS Stylesheet - Command Center
    ========================================================================== */
+@font-face {
+    font-family: 'AllRoundGothicDemi';
+    src: url('Font/all-round-gothic-demi.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -216,26 +223,94 @@ body.show-settings .reset-btn {
     text-shadow: 0 0 20px rgba(255, 23, 68, 0.4);
 }
 
-.s4 .countdown-timer .time-block .val {
-    color: #00e5ff; /* Tech Neon Blue */
-    text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+/* ── TI SLIDE (SLIDE 5) ── */
+.slide.s4 {
+    background-size: cover;
+    background-position: center;
+    background-color: #e5e3dc;
 }
 
-/* ── TI SLIDE COUNTDOWN POSITIONING (UNDER "FALTAM") ── */
+.s4 .slide-label {
+    color: #000000;
+}
+
 .ti-countdown-box {
     position: absolute;
-    top: 24%;
-    right: 8%;
+    top: 31%;
+    right: 12%;
     text-align: center;
-    background: rgba(7, 10, 22, 0.55);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1.5px solid rgba(0, 229, 255, 0.3);
-    border-radius: 24px;
-    padding: 20px 35px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(0, 229, 255, 0.05);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
     z-index: 2;
-    width: min(580px, 90vw);
+    margin-top: 0;
+    width: auto;
+}
+
+.s4 .countdown-timer {
+    gap: 18px;
+    margin: 0;
+}
+
+.s4 .countdown-timer .time-block {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    min-width: auto;
+}
+
+.s4 .countdown-timer .time-block .val {
+    font-family: 'AllRoundGothicDemi', sans-serif;
+    font-size: min(8vw, 82px);
+    color: #000000;
+    text-shadow: none;
+    line-height: 1;
+}
+
+.s4 .countdown-timer .time-block .lbl {
+    font-family: 'AllRoundGothicDemi', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #000000;
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+
+.s4 .countdown-timer .time-divider {
+    font-family: 'AllRoundGothicDemi', sans-serif;
+    font-size: 56px;
+    color: #000000;
+    line-height: 1;
+    margin-top: -15px;
+}
+
+.s4 .event-date {
+    font-family: 'AllRoundGothicDemi', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #000000;
+    margin-top: 15px;
+    text-transform: capitalize;
+}
+
+.s4 .date-input-row input[type=date] {
+    background: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #000;
+    color-scheme: light;
+}
+
+.s4 .save-btn {
+    background: #000000;
+    color: #ffffff;
+    border: none;
 }
 
 .countdown-timer .time-block .lbl {
