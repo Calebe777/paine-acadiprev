@@ -22,15 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let rotationTimer = null;
 
     function startAutoRotation() {
-        if (rotationTimer) clearInterval(rotationTimer);
-        rotationTimer = setInterval(() => {
-            // Only auto-rotate if the settings panel is not open and user is not editing inputs
+        if (rotationTimer) clearTimeout(rotationTimer);
+        
+        // Dá mais tempo de tela (20s) especificamente para o slide 5 do TI (cur === 4)
+        const duration = (cur === 4) ? 20000 : ROTATION_INTERVAL;
+
+        rotationTimer = setTimeout(() => {
             const isEditing = document.body.classList.contains("show-settings") || 
                               ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
             if (!isEditing) {
                 go(1);
+            } else {
+                startAutoRotation();
             }
-        }, ROTATION_INTERVAL);
+        }, duration);
     }
 
     function resetAutoRotation() {

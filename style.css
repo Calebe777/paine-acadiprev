@@ -236,7 +236,7 @@ body.show-settings .reset-btn {
 
 .ti-countdown-box {
     position: absolute;
-    top: 29.5%;
+    top: 28%;
     left: 67.7%;
     transform: translateX(-50%);
     text-align: center;
@@ -260,7 +260,7 @@ body.show-settings .reset-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 32px;
     margin: 0 !important;
 }
 
@@ -273,42 +273,42 @@ body.show-settings .reset-btn {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
-    min-width: 120px !important;
+    min-width: 155px !important;
 }
 
 .s4 .countdown-timer .time-block .val {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: min(11vw, 130px) !important;
+    font-size: min(14vw, 175px) !important;
     color: #002bfb !important; /* Blue matching Time do TI */
     text-shadow: none !important;
-    line-height: 0.9 !important;
+    line-height: 0.85 !important;
 }
 
 .s4 .countdown-timer .time-block .lbl {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: 20px !important;
+    font-size: 24px !important;
     font-weight: 700 !important;
-    letter-spacing: 4px !important;
+    letter-spacing: 5px !important;
     color: #000000 !important;
-    margin-top: 8px !important;
+    margin-top: 10px !important;
     text-transform: uppercase !important;
 }
 
 .s4 .countdown-timer .time-divider {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: 88px !important;
+    font-size: 115px !important;
     color: #000000 !important;
     line-height: 1 !important;
-    margin-top: -24px !important;
+    margin-top: -32px !important;
 }
 
 .s4 .event-date {
     font-family: 'AllRoundGothicDemi', sans-serif !important;
-    font-size: 26px !important;
+    font-size: 30px !important;
     font-weight: 600 !important;
-    letter-spacing: 3px !important;
+    letter-spacing: 4px !important;
     color: #000000 !important;
-    margin-top: 18px !important;
+    margin-top: 22px !important;
     text-align: center !important;
     text-transform: capitalize !important;
 }
